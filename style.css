@@ -48,7 +48,7 @@ header > #title_container {
 header > #title_container > #title_box {
     width: 60%;
     border-radius: 10px;
-    background-image: url(./pic/ai_small.jpg);
+    background-image: url(./ai_small.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

@@ -1,0 +1,306 @@
+* {
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: "Rubik_Burned";
+    src: url(./fonts/RubikBurned-Regular.ttf);
+} 
+body{
+    margin: 0;
+}
+#main {
+    display: flex;
+    min-height: 250vh;
+    padding-top: 15vh;
+}
+#main > article {
+    flex: 1;
+}
+#main > nav, #main > aside {
+    flex: 0 0 20%;
+    background-color: beige;
+    display: none;
+}
+#main > nav {
+    order: -1;
+}
+header, footer, article, aside, nav {
+    padding: 1em;
+}
+header, footer {
+    background-color: Bisque;
+    box-shadow: 1px 1px 5px rgb(255, 219, 174);
+    height: 15vh;
+}
+header{
+    width: 100%;
+    position: fixed;
+    top: 0; /* 🔥 這一行非常重要 */
+    left: 0;
+    z-index: 999; /* 為了確保在最上層 */
+}
+
+header > #title_container {
+    display: flex;
+    justify-content: center;
+    /* align-items: end; */
+    margin-top: 10px;
+}
+
+header > #title_container > #title_box {
+    width: 60%;
+    border-radius: 10px;
+    background-image: url(./pic/ai_small.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header > #title_container > #title_box > #title {
+    font-family: "Rubik_Burned";
+    margin: 0; 
+    border: 3px dashed white;
+    border-radius: 10px;
+    backdrop-filter: blur(50px);
+    font-size: 40px;
+    color: rgb(210, 247, 255);
+    text-shadow: 5px 5px 5px rgb(149, 149, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgba(255, 255, 255, 0.6); */
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+}
+
+body {
+    /* background-image: url(./pic/coffee.jpg); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#main_introduce {
+    background-color: white;
+    /* margin-left: 100px; */
+    /* border:3px dotted black; */
+    text-align: center;
+    font-size: 25px;
+    width: 220px;
+}
+#author_container {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    /* margin: 0; */
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+#img_author {
+    /* margin-left: 100px; */
+    height: 150px;
+    width: 150px;
+    float:left;
+    border: 2px solid white;
+    border-radius: 100px;
+}
+#self {
+    background-color: white;
+    margin-left: 10px;
+    border: 1px solid white;
+    border-radius: 35px;
+    width: 260px;
+    height: 150px;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#self li::marker{
+    content: "🌽";
+}
+#self li:hover{
+    background-color: gray;
+    color: white;
+}
+
+nav > .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+nav > .nav > li {
+    list-style: lower-greek;
+}
+
+nav > .nav > li > a {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+nav > .nav > li > a:hover {
+    color: #f57c00;
+    text-decoration: underline; /* 想 hover 時再加底線可寫這行 */
+}
+
+#main_tp_container {
+  /* width: 100%; */
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  /* background-color: #fffbe6; */
+  padding: 0.5em;
+  position: relative;
+}
+
+#main > article > #main_tp_container > #main_typing_text {
+    display: inline-block;
+    padding-left: 100%; /* 從畫面右側起跑 */
+    animation: scroll-left 10s linear infinite;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
+}
+
+@media (min-width: 768px) {
+    #main > nav, #main > aside {
+        display: flex;
+        flex: 0 0 20%;
+        background-color: beige;
+    }
+    #author_container {
+        display: flex;
+        flex-direction: row;
+    }
+    #self {
+        display: flex;
+        align-items: start;
+        border-radius: 10px;
+    }
+}
+
+/* 基本樣式 */
+.menu-toggle {
+    display: none;
+    padding: 8px 15px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.menu-toggle:hover {
+    background: #45a049;
+}
+
+/* 下拉選單樣式 */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-menu.active {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f1f1f1;
+}
+
+/* 響應式設計 */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    #title_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+
+    #main-nav {
+        display: none;
+        position: fixed;
+        top: 15vh; /* 改為與 header 高度相同 */
+        left: 0;
+        width: 250px;
+        height: calc(100% - 15vh); /* 減去 header 高度 */
+        background: white;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        overflow-y: auto; /* 添加滾動功能 */
+        padding-top: 20px;
+    }
+
+    #main-nav.active {
+        display: block;
+    }
+
+    #main-aside {
+        display: none;
+        position: fixed;
+        top: 60px;
+        right: 0;
+        width: 250px;
+        height: 100%;
+        background: white;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    #main-aside.active {
+        display: block;
+    }
+
+    .nav {
+        flex-direction: column;
+        padding-left: 20px;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        padding-left: 0;
+    }
+
+    .dropdown-menu li {
+        padding: 8px 16px;
+    }
+
+    .dropdown-menu li:hover {
+        background-color: #e0e0e0;
+    }
+}

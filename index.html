@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="keywords" content="玉米,毅銘">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <title>Corn Field Web</title>
+    </head>
+    <body>
+        <header>
+            <div id="title_container">
+                <button id="nav-toggle" class="menu-toggle">☰ 選單</button>
+                <div id="title_box">
+                    <h1 id="title">Corn Field</h1>
+                </div>
+                <button id="aside-toggle" class="menu-toggle">≣ 側欄</button>
+            </div>
+        </header>
+            <div id="main">
+                <article>
+                    <div id="main_tp_container">
+                       <p id="main_typing_text">歡迎蒞臨 Corn Field ， 這裡有很多玉米 !🌽🌽🌽</p> 
+                    </div>
+                    <div id="author_container">
+                        <img src="./pic/author_2.jpg" alt="作者照片" id="img_author">
+                        <ul id="self">
+                            <li>姓名：鄭毅銘</li>
+                            <li>岡山高中 113級畢業生</li>
+                            <li>中正大學 資訊工程系大一生</li>
+                            <li>目標：各種語言及開發模組</li>
+                        </ul>
+                    </div>
+                </article>
+                <nav id="main-nav">
+                      <ul class="nav">
+                        <li><a href="#">首頁</a></li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">關於我們</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">作者介紹</a></li>
+                                <li><a href="#">我們的理念</a></li>
+                                <li><a href="#">聯絡方式</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">作品集</a></li>
+                    </ul>
+                </nav>
+                
+                <aside id="main-aside">Aside</aside>
+            </div>
+            <footer>Footer</footer>
+        </div>
+        <!-- <script>
+            const text = "Welcome to Corn Field !!! This website is from a university student.";
+            const typingElement = document.getElementById("main_typing_text");
+
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function typeLoop() {
+                if (!isDeleting && charIndex <= text.length) {
+                typingElement.textContent = text.substring(0, charIndex);
+                charIndex++;
+                setTimeout(typeLoop, 40); // 打字速度
+                } else if (!isDeleting && charIndex > text.length) {
+                isDeleting = true;
+                setTimeout(typeLoop, 2000); // 停 3 秒後開始刪字
+                } else if (isDeleting && charIndex >= 0) {
+                typingElement.textContent = text.substring(0, charIndex);
+                charIndex--;
+                setTimeout(typeLoop, 20); // 刪字速度
+                } else {
+                isDeleting = false;
+                setTimeout(typeLoop, 500); // 刪完停 0.5 秒後重新開始
+                }
+            }
+
+            typeLoop(); // 啟動
+        </script> -->
+        <script>
+            // 處理導航選單的顯示/隱藏
+            document.getElementById('nav-toggle').addEventListener('click', function() {
+                document.getElementById('main-nav').classList.toggle('active');
+            });
+
+            // 處理側欄的顯示/隱藏
+            document.getElementById('aside-toggle').addEventListener('click', function() {
+                document.getElementById('main-aside').classList.toggle('active');
+            });
+
+            // 處理下拉選單
+            document.querySelectorAll('.dropdown-toggle').forEach(function(element) {
+                element.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const dropdownMenu = this.nextElementSibling;
+                    dropdownMenu.classList.toggle('active');
+                });
+            });
+
+            // 點擊頁面其他地方時關閉下拉選單
+            document.addEventListener('click', function(e) {
+                if (!e.target.matches('.dropdown-toggle')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+                        if (menu.classList.contains('active')) {
+                            menu.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>
